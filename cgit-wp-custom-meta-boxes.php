@@ -21,9 +21,9 @@ require_once 'custom-meta-boxes/custom-meta-boxes.php';
  * Advanced Custom Fields. Uses the current post ID by default (if available);
  * returns FALSE if post ID is not set.
  */
-function get_field ($field, $post_id = FALSE) {
+function get_field ($field, $post_id = FALSE, $single = TRUE) {
 
-    if ( $post_id == FALSE ) {
+    if ( ! $post_id ) {
 
         global $post;
 
@@ -35,13 +35,13 @@ function get_field ($field, $post_id = FALSE) {
 
     }
 
-    return get_post_meta($post_id, $field, TRUE);
+    return get_post_meta($post_id, $field, $single);
 
 }
 
 /**
  * Print field value
  */
-function the_field ($field, $post_id = FALSE) {
-    echo get_field($field, $post_id);
+function the_field ($field, $post_id = FALSE, $single = FALSE) {
+    echo get_field($field, $post_id, $single);
 }
