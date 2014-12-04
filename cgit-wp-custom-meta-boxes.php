@@ -42,6 +42,6 @@ function get_field ($field, $post_id = FALSE, $single = TRUE) {
 /**
  * Print field value
  */
-function the_field ($field, $post_id = FALSE, $single = FALSE) {
+function the_field ($field, $post_id = FALSE, $single = TRUE) {
     echo get_field($field, $post_id, $single);
 }
